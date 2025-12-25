@@ -1,18 +1,8 @@
 function UserGreeting(props){
-
-    if(props.isLogged){
-        return(
-            <>
-                <h2>Suscessfully Logged</h2>
-            </>
+    return( 
+            props.isLogged ? 
+            <h2 className="user-greet">Welcome {props.userName}</h2> : 
+            <h2 className="loginPrompt">Please Loggin</h2>
         )
-    }
-    else{
-        return(
-            <>
-                <h2>Please log in to continue</h2>
-            </>
-        )
-    }
 }
 export default UserGreeting

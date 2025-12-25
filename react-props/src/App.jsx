@@ -9,7 +9,8 @@ function App() {
       <Student name="Patrick" age={28} isStudent={false}/>
       <Default/>
       <Default name="Caption" age={34} isEmployee={true}/> */}
-      <UserGreeting isLogged={true}/>
+      <UserGreeting isLogged={true} userName="BroCode"/>
+      <UserGreeting isLogged={false}/>
     </>
   )
 }
