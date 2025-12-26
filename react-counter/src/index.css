@@ -1,0 +1,42 @@
+.counterLayout{
+    text-align: center;
+    font-size: 4rem;
+}
+.positive{
+    color: rgb(124, 48, 124);
+}
+.negative{
+    color: rgb(161, 46, 30);
+}
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+button{
+    padding: 8px;
+    border: none;
+    box-shadow: 2px 2px 5px black;
+}
+button span{
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.increment{
+    background-color: rgb(47, 172, 47);
+}
+.increment span{
+    color: rgb(1, 53, 1);
+}
+.decrement{
+    background-color: rgb(226, 63, 34);
+}
+.decrement span{
+    color: rgb(63, 5, 5);
+}
+.reset{
+    background-color: rgb(50, 121, 184);
+}
+.reset span{
+    color: rgb(5, 5, 71);
+}

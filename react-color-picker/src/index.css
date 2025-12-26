@@ -1,0 +1,19 @@
+.color-picker-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.SelectedBox{
+  padding: 10px;
+  height: 200px;
+  width: 400px;
+  border-radius: 12px;
+  margin: 10px;
+  box-shadow: 1px 1px 10px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.selectionContainer{
+  margin-top: 10px;
+}
