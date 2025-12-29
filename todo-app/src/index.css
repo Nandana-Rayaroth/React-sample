@@ -1,0 +1,44 @@
+.dotoOverlay{
+  text-align: center;
+  margin-top: 20px;
+}
+body{
+  background-color: rgb(170, 201, 226);
+}
+.itemContainer{
+  list-style: none;
+}
+.InputContainer{
+  padding: 8px;
+  margin: 10px;
+  box-shadow: 2px 2px 10px black;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.5rem;
+}
+.addBtn{
+  padding: 10px;
+  border: none;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  box-shadow: 2px 3px 10px rgb(145, 102, 63);
+  background-color: rgb(231, 173, 97);
+}
+li{
+  margin: 8px;
+  font-size: 1.4rem;
+}
+.checkBox{
+  margin: 8px;
+}
+.dltBtn{
+  margin: 4px;
+  padding: 8px;
+  border: none;
+  background-color: tomato;
+  box-shadow: 4px 4px 8px black;
+}
+/* .checkBox:checked + .taskText{
+  text-decoration: line-through;
+  opacity: 1;
+} */

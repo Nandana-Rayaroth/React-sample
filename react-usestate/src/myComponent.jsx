@@ -21,7 +21,7 @@ function MyComponent(){
             </ul>
             <input id="Input" type="text" placeholder="Enter food name"/>
             <button onClick={handleFood}>Add Food</button>
-        </div>
+        </div> 
     )
 }
 
