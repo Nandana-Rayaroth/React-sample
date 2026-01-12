@@ -1,0 +1,37 @@
+.OverLay{
+  text-align: center;
+  font-size: 3rem;
+}
+.buttonContainer{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.buttonContainer button{
+  padding: 10px;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  border: none;
+}
+.Increase{
+  background-color: rgb(56, 184, 56);
+  color: rgb(1, 49, 1);
+}
+.Decrease{
+  background-color: rgb(211, 55, 55);
+  color: rgb(88, 4, 4);
+}
+.Reset{
+  background-color: rgb(62, 62, 192);
+  color: rgb(10, 10, 99);
+}
+/* ## */
+.showContainer{
+  text-align: center;
+}
+
+/* ## */
+.bgSetter{
+  height: 250px;
+  width: 50%;
+}
