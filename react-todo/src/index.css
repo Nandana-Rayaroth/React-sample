@@ -1,0 +1,46 @@
+.overLay{
+  text-align: center;
+}
+body{
+  background-color: bisque;
+}
+.todotitle{
+  color: brown;
+  font-weight: 800;
+  font-size: 3rem;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.InpContainer{
+  margin-top: 60px;
+  
+}
+.Inpt{
+  padding: 12px;
+  min-width: 250px;
+  border: none;
+  box-shadow: 4px 4px 8px black;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.addBtn{
+  padding: 10px;
+  font-size: 18px;
+  background-color: rgb(161, 54, 54);
+  color: rgb(235, 225, 225);
+  border: none;
+  box-shadow: 4px 4px 8px black;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.checkBox{
+  margin-right: 15px;
+}
+.deletBtn{
+  padding: 10px;
+  margin-left: 15px;
+  background-color: rgba(230, 46, 13, 0.637);
+  /* background-color: rgb(175, 91, 31); */
+  border: none;
+  border-radius: 7px;
+  box-shadow: 2px 2px 4px black;
+}
