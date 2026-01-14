@@ -28,10 +28,14 @@ function TodoContainer(){
         ))
     }
 
+    const handleDelete = (id) => {
+        setData(prev => prev.filter(item => item.id !== id))
+    }
+
     return(
         <div>
             <AddItem add={add}/>
-            <TaskItem item={data} toggle={toggleComplete}/>
+            <TaskItem item={data} toggle={toggleComplete} deleteFn={handleDelete}/>
         </div>
     )
 }
