@@ -3,6 +3,8 @@ import InputFocus from "./components/InputFocus"
 import MuteInp from "./components/MuteInp"
 import Counter from "./components/Counter"
 import CounterWithRef from "./components/CounterWithRef"
+import Previous from "./components/Previous"
+import StartAndStop from "./components/StartAndStop"
 
 function App() {
   
@@ -11,7 +13,9 @@ function App() {
     // <Autofocus/>
     // <MuteInp/>
     // <Counter/>
-    <CounterWithRef/>
+    // <CounterWithRef/>
+    // <Previous/>
+    <StartAndStop/>
   )
 }
 
