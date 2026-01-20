@@ -7,7 +7,7 @@ function App() {
   return(
     <>
       {/* <MovieComponent /> */}
-      <StarRating maxRating={10}/>
+      <StarRating maxRating={5} size={24} color="red" messages={["Terrible", "Bad", "Okay", "Good", "Amazing"]} defaultRating={3} />
     </>
   )
 }
