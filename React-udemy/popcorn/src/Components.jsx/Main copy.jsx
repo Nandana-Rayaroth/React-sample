@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import NavBar from './NavBar';
 import Movie from './Movie';
 import WatchedSummery from './WatchedSummery';
 import MovieList from './MovieList';
-import { func } from 'prop-types';
 
 const tempMovieData = [
   {
@@ -53,45 +52,18 @@ const tempWatchedData = [
 ];
 
 export default function Main() {
-    const [query, setQuery] = useState("")
-    const [movies, setMovies] = useState([]);
-    const [watched, setWatched] = useState([]);
+    
+    
+          
+    const [movies, setMovies] = useState(tempMovieData);
+    const [watched, setWatched] = useState(tempWatchedData);
     const [isOpen1, setIsOpen1] = useState(true);
     const [isOpen2, setIsOpen2] = useState(true);
-    const [isLoding, setIsLoading] = useState(false)
-    const [error, setError] = useState("")
-
-    const KEY = "f84fc31d"
-    const temQuerry = "interstellar";
-    useEffect(function(){
-      async function fetchMovie(){
-      try {
-        setIsLoading(true);
-        const res = await fetch(
-          `http://www.omdbapi.com/?apikey=${KEY}&s=${temQuerry}`,
-        );
-        if (!res.ok)
-          throw new Error("Something went wrong with fetching movies");
-        const data = await res.json();
-
-        if(data.Response === 'False') throw new Error ("Movie not found")
-        setMovies(data.Search);
-      } catch (err) {
-        console.error(err.message);
-        setError(err.message)
-      }
-      finally{
-        setIsLoading(false);
-      }
-      }
-      fetchMovie()
-      }, [])
-    
 
     
   return (
     <>
-      <NavBar movies={movies} query={query} setQuery={setQuery}/>
+      <NavBar movies={movies} />
       <main className="main">
         <div className="box">
           <button
@@ -100,24 +72,13 @@ export default function Main() {
           >
             {isOpen1 ? "-" : "+"}
           </button>
-          {/* {isLoding ?  (<p className="loader">Loading...</p>) : 
-            (isOpen1 && (
-              <ul className="list">
-                {movies?.map((movie) => (
-                  <MovieList movie={movie} key={movie.imdbID} />
-                ))}
-              </ul>
-            ))
-          } */}
-          {isLoding && <p className='loader'>Loading...</p>}
-          {!isLoding && !error && isOpen1 && (
+          {isOpen1 && (
             <ul className="list">
               {movies?.map((movie) => (
                 <MovieList movie={movie} key={movie.imdbID} />
               ))}
             </ul>
           )}
-          {error && <ErrorMessage message={error} />}
         </div>
 
         <div className="box">
@@ -142,9 +103,4 @@ export default function Main() {
       </main>
     </>
   );
-}
-
-
-function ErrorMessage({message}){
-  return <p className='error'>{message}</p>
 }
