@@ -51,29 +51,41 @@ const tempWatchedData = [
     userRating: 9,
   },
 ];
+const KEY = "2df59e87";
 
 export default function Main() {
-    const [query, setQuery] = useState("")
+    const [query, setQuery] = useState("inception")
     const [movies, setMovies] = useState([]);
     const [watched, setWatched] = useState([]);
     const [isOpen1, setIsOpen1] = useState(true);
     const [isOpen2, setIsOpen2] = useState(true);
     const [isLoding, setIsLoading] = useState(false)
     const [error, setError] = useState("")
-
-    const KEY = "f84fc31d"
+    const [selectedId, setSelectedId] = useState(null)
+    // const KEY = "f84fc31d"
     const temQuerry = "interstellar";
+
+    function handleSelectMovie(id){
+      setSelectedId((selectedId) => (id === selectedId ? null : id))
+    }
+
+    function handleCloseMovie(){
+      setSelectedId(null)
+    }
+
     useEffect(function(){
       async function fetchMovie(){
       try {
         setIsLoading(true);
+        setError("")
         const res = await fetch(
-          `http://www.omdbapi.com/?apikey=${KEY}&s=${temQuerry}`,
+          // `https://www.omdbapi.com/?apikey=${KEY}&s=${temQuerry}`,
+          `https://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
         );
         if (!res.ok)
           throw new Error("Something went wrong with fetching movies");
+        
         const data = await res.json();
-
         if(data.Response === 'False') throw new Error ("Movie not found")
         setMovies(data.Search);
       } catch (err) {
@@ -84,14 +96,17 @@ export default function Main() {
         setIsLoading(false);
       }
       }
+      if(query.length < 3){
+        setMovies([])
+        setError('')
+        return
+      }
       fetchMovie()
-      }, [])
-    
-
+      }, [query])
     
   return (
     <>
-      <NavBar movies={movies} query={query} setQuery={setQuery}/>
+      <NavBar movies={movies} query={query} setQuery={setQuery} />
       <main className="main">
         <div className="box">
           <button
@@ -109,11 +124,15 @@ export default function Main() {
               </ul>
             ))
           } */}
-          {isLoding && <p className='loader'>Loading...</p>}
+          {isLoding && <p className="loader">Loading...</p>}
           {!isLoding && !error && isOpen1 && (
-            <ul className="list">
+            <ul className="list list-movies">
               {movies?.map((movie) => (
-                <MovieList movie={movie} key={movie.imdbID} />
+                <MovieList
+                  movie={movie}
+                  key={movie.imdbID}
+                  onSelectMovie={handleSelectMovie}
+                />
               ))}
             </ul>
           )}
@@ -129,13 +148,21 @@ export default function Main() {
           </button>
           {isOpen2 && (
             <>
-              <WatchedSummery watched={watched} />
-
-              <ul className="list">
-                {watched.map((movie) => (
-                  <Movie movie={movie} key={movie.imdbID} />
-                ))}
-              </ul>
+              {selectedId ? (
+                <MovieDetails
+                  selectedId={selectedId}
+                  onCloseMovie={handleCloseMovie}
+                />
+              ) : (
+                <>
+                  <WatchedSummery watched={watched} />
+                  <ul className="list">
+                    {watched.map((movie) => (
+                      <Movie movie={movie} key={movie.imdbID} />
+                    ))}
+                  </ul>
+                </>
+              )}
             </>
           )}
         </div>
@@ -147,4 +174,10 @@ export default function Main() {
 
 function ErrorMessage({message}){
   return <p className='error'>{message}</p>
+}
+
+function MovieDetails({selectedId, onCloseMovie}){
+  return <div className='details'>
+    <button className='btn-back' onClick={onCloseMovie}>&larr;</button>
+    {selectedId}</div>
 }
