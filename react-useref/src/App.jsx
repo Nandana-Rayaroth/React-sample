@@ -5,6 +5,7 @@ import Counter from "./components/Counter"
 import CounterWithRef from "./components/CounterWithRef"
 import Previous from "./components/Previous"
 import StartAndStop from "./components/StartAndStop"
+import LoadFocus from "./components/LoadFocus"
 
 function App() {
   
@@ -15,7 +16,8 @@ function App() {
     // <Counter/>
     // <CounterWithRef/>
     // <Previous/>
-    <StartAndStop/>
+    // <StartAndStop/>
+    <LoadFocus />
   )
 }
 
