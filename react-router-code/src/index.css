@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+.active {
+    @apply bg-blue-950 border-b-8
+}
+.contentOuter{
+    @apply bg-gray-400 h-screen 
+}
+.contentLayOut{
+    @apply mx-16 bg-white h-full p-10 
+}
