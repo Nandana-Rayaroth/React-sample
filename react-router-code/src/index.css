@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-.active {
+.navBar .active {
     @apply bg-blue-950 border-b-8
 }
 .contentOuter{
@@ -8,4 +8,16 @@
 }
 .contentLayOut{
     @apply mx-16 bg-white h-full p-10 
+}
+.tabBar .active{
+    @apply bg-blue-900
+}
+.marks, .sports, .remarks{
+    @apply text-xl border-4 border-blue-900 p-4 bg-sky-100
+}
+.marks span{
+    @apply border-b-2 border-sky-400 p-2
+}
+.sports > div{
+    @apply flex border-b-2 border-sky-400 p-2
 }

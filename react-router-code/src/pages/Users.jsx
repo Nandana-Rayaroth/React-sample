@@ -23,11 +23,12 @@ export default function Users() {
   }, [])
 
   return (
-    <div className="contentOuter">
+    <div className="bg-gray-400">
       <div className="contentLayOut flex flex-col gap-6">
         <div>
           <label>Select Class</label>
-          <select onChange={handleClass}>
+          <select className='border-2 ml-2 p-1' onChange={handleClass}>
+            <option value={null}>All</option>
             <option value={1}>1</option>
             <option value={2}>2</option>
             <option value={3}>3</option>
@@ -52,12 +53,14 @@ export default function Users() {
                 className="rounded-lg border-2 border-gray-300 bg-sky-100 p-6 italic"
                 key={item.id}
                 onClick={() => {
-                  navigate(`/details/${item.id}`)
+                  navigate(`details/${item.id}`, {
+                    state: {
+                      data: item,
+                    },
+                  });
                 }}
               >
-                <h1 className="text-2xl">
-                  {item.name}
-                </h1>
+                <h1 className="text-2xl">{item.name}</h1>
                 <p>{item.address}</p>
                 <p>class {item.class}</p>
               </div>
